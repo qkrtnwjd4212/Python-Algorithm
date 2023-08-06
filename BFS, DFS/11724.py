@@ -1,6 +1,7 @@
 # 백준 11724 - 연결 요소의 개수
-
 from collections import deque
+import sys
+input = sys.stdin.readline
 
 n, m = map(int, input().split()) # 노드, 링크
 graph = [[] for _ in range(n+1)] 

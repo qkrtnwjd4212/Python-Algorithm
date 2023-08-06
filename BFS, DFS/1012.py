@@ -1,5 +1,6 @@
 # 1012 - 유기농 배추 (연결 요소의 개수)
 import sys 
+input = sys.stdin.readline
 sys.setrecursionlimit(10000) 
 
 # dfs
@@ -7,7 +8,7 @@ def dfs(x,y):
     if x<0 or x>=n or y<0 or y>=m:
         return False
     if graph[x][y] == 1:
-        graph[x][y] = 0
+        graph[x][y] = 0 # 중복해서 세지 않기 위해!!
         dfs(x-1,y)
         dfs(x,y-1)
         dfs(x+1,y)
