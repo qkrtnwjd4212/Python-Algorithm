@@ -5,17 +5,15 @@ input = sys.stdin.readline
 
 n = int(input())
 score = []
+dp = [0] * n
 for _ in range(n):
     score.append(int(input()))
 
-dp = [0] * n
-dp[0] = score[0]
-dp[1] = score[0] + score[1]
-
-for i in range(2, n): # 점화식
-    dp[i] = max(dp[i-3] + score[i-1] + score[i], dp[i-2] + score[i])
-    
-if n <= 2:
+if n<=2:
     print(sum(score))
 else:
-    print(dp[n-1])
+    dp[0] = score[0]
+    dp[1] = score[0] + score[1]
+    for i in range(2, n): # 점화식
+        dp[i] = max(dp[i-3] + score[i-1] + score[i], dp[i-2] + score[i])
+    print(dp[n-1])   
