@@ -1,5 +1,4 @@
 # 백준 2579 - 계단
-# 96퍼에서 런타임 에러 ㅠㅠ
 import sys 
 input = sys.stdin.readline
 
