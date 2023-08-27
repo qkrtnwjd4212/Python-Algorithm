@@ -23,7 +23,7 @@ def union_parent(parent, a, b):
     else:
         parent[a] = b
 
-for _ in range(M): # 같은 파티에 저장한 사람들을 하나로 union
+for _ in range(M): # 같은 파티에 참석한 사람들을 하나로 union
     party = list(map(int, input().split()))[1:] # 얘도 번호만 저장
     for i in range(len(party) - 1):
         union_parent(parent, party[i], party[i+1])
@@ -33,7 +33,9 @@ answer = 0
 for party in parties:
     know = False
     for i in range(len(party)):
-        if find_parent(parent, party[i]) == 0:
+        print()
+        print(parent[i])
+        if find_parent(parent, party[i]) == 0: # 파티 구성원의 부모가 0이면(진실을 아는애면)
             know = True
             break
     if not know:
