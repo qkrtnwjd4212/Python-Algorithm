@@ -20,14 +20,14 @@ for i in range(2, n+1):
         prime.append(i)
 
 start, end, count = 0, 0, 0
-while end <= len(prime):
-    tmp = sum(prime[start:end])
-    if tmp == n:
-        count += 1
+while end < len(prime):
+    tmp = sum(prime[start:end+1])
+    if tmp > n:
         start += 1
     elif tmp < n:
         end += 1
     else:
+        count += 1
         start += 1
 
 print(count)
