@@ -6,14 +6,14 @@ import math
 N = int(input())
 
 def is_prime(n):
-    for i in range(2, int(math.sqrt(n))+1):
-    	if n % i == 0:
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
             return False
-	return True
+    return True
 	
 def is_pallindrome(n):
-	for i in range(0, len(n)//2):
-		if n[i] == n[-i]:
+	for i in range(0, len(str(n))//2):
+		if str(n)[i] == str(n)[-i-1]:
 			continue
 		else:
 			return False
@@ -25,4 +25,7 @@ while(True):
 	else:
 		N += 1
 		
-print(N)
+if N == 1: # N이 1일 때 예외 처리
+	print(2)
+else:
+	print(N)
