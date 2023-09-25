@@ -9,20 +9,18 @@ for i in range(N):
 
     if now[0] == 'push':
         stack.append(int(now[1]))
+        
     elif now[0] == 'pop':
-        if len(stack) == 0:
-            print(-1)
-        else:
-            stack.pop()
+        if len(stack) == 0: print(-1)
+        else: print(stack.pop())
+
     elif now[0] == 'size':
         print(len(stack))
+
     elif now[0] == 'empty':
-        if len(stack) == 0:
-            print(1)
-        else:
-            print(0)
+        if len(stack) == 0: print(1)
+        else: print(0)
+
     elif now[0] == 'top':
-        if len(stack) == 0:
-            print(-1)
-        a = stack.pop()
-        stack.append(a)
+        if len(stack) == 0: print(-1)
+        else: print(stack[-1])

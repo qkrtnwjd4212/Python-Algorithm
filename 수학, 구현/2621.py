@@ -4,6 +4,7 @@ input = sys.stdin.readline
 
 color = {'R':0, 'B':0, 'Y':0, 'G':0}
 num = [0 for _ in range(10)] # 1~9까지 (index 0은 안씀)
+
 for _ in range(5):
     a, b = map(str, input().rstrip().split())
     color[a] += 1
@@ -12,19 +13,23 @@ for _ in range(5):
 def check_straight(): # 모두 연속하는 수인지 검사
     tmp = 1
     for i in range(1, 9):
-        if num[i+1] == num[i]:
+        if num[i+1] == num[i] == 1: # 씨ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ바
             tmp += 1
         else: tmp = 1 # 다른 값이 나오면 초기화
         if tmp == 5: # 이거도 카운트한 뒤에 검사하고 출력하기 ㅠ
-            return i+1
+            return (i+1)
     else: return 0
 
-def check_max(): # 카드 번호(인덱스)의 최대값 출력
-    tmp_max = 0
-    for i in range(1, 10):
-        if num[i] != 0 and i > tmp_max:
-            tmp_max = i
-    return tmp_max
+#def check_max(): # 카드 번호(인덱스)의 최대값 출력
+#    tmp_max = 0
+#    for i in range(1, 10):
+#        if num[i] != 0 and i > tmp_max:
+#            tmp_max = i
+#    return tmp_max
+def check_max():
+    for i in range(9, 0, -1):
+        if num[i] > 0:
+            return i
 
 # pair, arr = 0, []
 # def check_cards(): # 페어 개수 검사
