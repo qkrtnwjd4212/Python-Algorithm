@@ -8,13 +8,13 @@ for _ in range(T):
     N, M = map(int, input().split())
     q = list(map(int, input().split()))
 
-    count, idx = 0, M
+    count, idx = 1, M
     while q: # 큐가 빌때까지
         if idx != 0:
             if q[0] != max(q):
                 q.append(q.pop(0))
                 idx -= 1
-                count += 1
+                #count += 1
             else:
                 q.pop(0)
                 idx -= 1
@@ -23,8 +23,11 @@ for _ in range(T):
             if q[0] != max(q):
                 idx += len(q) -1
                 q.append(q.pop(0))
-                count += 1
+                #count += 1
             else:
                 print(count)
                 break
 
+# num = [1,2,3,4]
+# num.append(num.pop(0))
+# print(num)
