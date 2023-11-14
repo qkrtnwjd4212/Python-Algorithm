@@ -6,14 +6,14 @@ input = sys.stdin.readline
 from collections import deque
 
 N, K = map(int, input().split()) # 수빈, 동생
-cnt = [-1] * (100001)
+cnt = [-1] * (100001) # 가능한 범위까지 리스트 만들기
 cnt[N] = 0
 
 q = deque([N])
 while q:
     cur = q.popleft()
     for next in (cur+1, cur-1, cur*2):
-        if 0 <= next <= 100000 and cnt[next] == -1:
+        if 0 <= next <= 100000 and cnt[next] == -1: # 지나가지 않은 점만 
             cnt[next] = cnt[cur] + 1
             q.append(next)
 
