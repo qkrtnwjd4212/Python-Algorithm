@@ -23,5 +23,3 @@ def bfs(x, y):
 
 bfs(0,0)
 print(count)
-
-
