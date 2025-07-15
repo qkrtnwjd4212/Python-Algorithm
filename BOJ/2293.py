@@ -3,20 +3,20 @@ import sys
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
-v = []
+coins = []
 dp = [0] * (k+1)
+dp[0] = 1
 
 for _ in range(n):
-    value = int(input())
-    v.append(value)
-    dp[value] = 1
-v.sort()
+    coins.append(int(input()))
+coins.sort()
 
-for i in range(k):
-    for j in range(n):
-        if i + v[j] <= k:
-            dp[i+v[j]] += 1
+for coin in coins:
+    print(f'{coin}원 탐색')
+    for j in range(coin, k+1):
+        dp[j] += dp[j - coin]
+    print(dp)
 
-print(dp)
+#print(dp)
 print(dp[k])
 
