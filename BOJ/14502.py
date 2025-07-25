@@ -63,4 +63,3 @@ for i in range(len(wall_space)):
 print(res)
 
 
-
